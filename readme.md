@@ -1,15 +1,6 @@
-# Typescript OpenHAB Template
+# Using Function Calls with OpenHAB
 
-This template can be used to create JSR223-compliant
-ECMAScript-Scripts to, for example, be used in Rules.
+This is a small demonstration showing how to pass functions as a parameter. 
 
-## Getting started.
-Clone the repository using 
-
-`git clone https://github.com/openhab-typescript/typescript-openhab-template`
-
-Run `npm install` to install the dependencies.
-
-The source files lie in `./src`. The output file lies in `./output`.
-
-To generate an output file, run `npm run build` from the project directory.
+It demonstrates that one cannot pass a Java-Method directly. It needs to be wrapped in a lambda. 
+The relevant code is in `/src/index.ts`, the output file that openHAB will consume is located in `/output`
