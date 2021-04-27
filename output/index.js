@@ -28,10 +28,20 @@ var ctx = this;
         return Main;
     }());
     var main = new Main();
+    /** For Java Methods */
     //@ts-ignore
     //const loggerFunction = (LoggerFactory.getByRuleId(ruleUID) as Logger).info;  // < does not work! ClassCastException
     var loggerFunction = function (str) { LoggerFactory.getByRuleId(ruleUID).info(str); };
     main.setCallback(loggerFunction);
     main.invoke("Hello World!");
+    /** For JS Functions */
+    var someString = "";
+    main.setCallback(function (str) { someString = str; });
+    main.invoke("Works with JS lambdas!");
+    loggerFunction(someString);
+    var someFunction = function (str) { someString = str; };
+    main.setCallback(someFunction);
+    main.invoke("Works with JS Lambdas stored in a variable too!");
+    loggerFunction(someString);
 
 }());
